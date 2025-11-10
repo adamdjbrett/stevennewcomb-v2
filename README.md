@@ -1,3 +1,7 @@
+# CHANGELOG
+1. UPDATE @zerostaticio 
+2. Update ```social.json```
+
 # Hugo Winston Theme
 
 Hugo Winston is a bold minimal blogging theme.
