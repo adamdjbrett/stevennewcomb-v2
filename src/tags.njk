@@ -1,0 +1,23 @@
+---
+layout: base.njk
+title: Tags
+permalink: /tags/
+---
+
+{% block body_classes %}page-tags-list{% endblock %}
+
+{% block main %}
+<div class="intro">
+  <h1>{{ title }}{% if site.addDot %}<span class="dot">.</span>{% endif %}</h1>
+</div>
+
+<div class="content">
+  <ul class="tags-list">
+  {% for tag in collections.tagList %}
+    {% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+    <li><a href="{{ tagUrl }}">{{ tag }}</a></li>
+  {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}
