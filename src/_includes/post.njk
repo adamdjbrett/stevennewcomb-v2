@@ -1,0 +1,22 @@
+---
+layout: base.njk
+---
+
+{% block body_classes %}page-blog-single{% endblock %}
+
+{% block main %}
+  <div class="blog">
+    {% if site.showAuthorOnPosts %}
+      {% include "author.njk" %}
+    {% endif %}
+    <div class="intro">
+      <h1>{{ title }}{% if site.addDot %}<span class="dot">.</span>{% endif %}</h1>
+      {% if image %}
+      <img alt="{{ imageAltAttribute | default('Article hero image') }}" src="{{ image }}" />
+      {% endif %}
+    </div>
+    <div class="content">
+      {{ content | safe }}
+    </div>
+  </div>
+{% endblock %}

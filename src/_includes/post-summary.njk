@@ -1,0 +1,9 @@
+<div class="summary">
+  {% if site.showAuthorOnPosts %}
+    {% include "author.njk" %}
+  {% else %}
+    <div class="summary-date">{{ date | readableDate }}</div>
+  {% endif %}
+  <h2 class="summary-title"><a href="{{ url }}">{{ title }}</a></h2>
+  <p class="summary-description">{{ description }}</p>
+</div>

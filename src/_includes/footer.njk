@@ -1,0 +1,13 @@
+<div class="footer">
+  {% if social.links %}
+  <div class="footer-social">
+    {% for link in social.links %}
+      <span class="social-icon social-icon-{{ link.name }}">
+        <a href="{{ link.url }}" title="{{ link.name }}" target="_blank" rel="noopener">
+          <img src="{{ link.image }}" width="24" height="24" alt="{{ link.name }}"/>
+        </a>
+      </span>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>

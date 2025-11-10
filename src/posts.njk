@@ -1,0 +1,45 @@
+---
+layout: base.njk
+title: Blog
+pagination:
+  data: collections.posts
+  size: 10
+permalink: "posts/{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+---
+
+{% block body_classes %}page-blog-list{% endblock %}
+
+{% block main %}
+<div class="intro">
+  <h1>{{ title }}{% if site.addDot %}<span class="dot">.</span>{% endif %}</h1>
+</div>
+
+{% for post in pagination.items %}
+  <div class="summary">
+    {% if site.showAuthorOnPosts %}
+      <div class="author">
+        <img width="30" class="author-image" src="{{ author.image }}" alt="{{ author.name }}" />
+        <span class="author-name">{{ author.name }}</span>
+        <span class="author-divider"></span>
+        <span class="author-date">{{ post.date | readableDate }}</span>
+      </div>
+    {% else %}
+      <div class="summary-date">{{ post.date | readableDate }}</div>
+    {% endif %}
+    <h2 class="summary-title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+    <p class="summary-description">{{ post.data.description }}</p>
+  </div>
+{% endfor %}
+
+{% if pagination.href.previous or pagination.href.next %}
+<div class="pagination">
+  {% if pagination.href.previous %}
+    <a href="{{ pagination.href.previous }}" class="pagination-previous">← Newer Posts</a>
+  {% endif %}
+  {% if pagination.href.next %}
+    <a href="{{ pagination.href.next }}" class="pagination-next">Older Posts →</a>
+  {% endif %}
+</div>
+{% endif %}
+
+{% endblock %}

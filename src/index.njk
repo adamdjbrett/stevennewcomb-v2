@@ -1,0 +1,40 @@
+---
+layout: base.njk
+title: You don't start out writing good stuff
+description: The hallway smelt of boiled cabbage and old rag mats.
+---
+
+{% block body_classes %}page-home{% endblock %}
+
+{% block main %}
+
+  {% if site.showAuthorOnHomepage %}
+    {% include "author-large.njk" %}
+  {% endif %}
+
+  <div class="intro">
+    <h1>{{ title }}{% if site.addDot %}<span class="dot">.</span>{% endif %}</h1>
+    {% if site.showIntroContentOnHomepage %}
+      <div class="intro-content">
+        {{ content | safe }}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if site.showPostsOnHomepage %}
+    {% set postsList = collections.posts %}
+
+    {% if site.usePaginationOnHomepage %}
+      {% for post in postsList %}
+        {% include "post-summary.njk" %}
+      {% endfor %}
+    {% else %}
+      {% set limitedPosts = postsList | limit(site.limitPostsOnHomepage) %}
+      {% for post in limitedPosts %}
+        {% include "post-summary.njk" %}
+      {% endfor %}
+      <a class="view-more" href="/posts">More Posts</a>
+    {% endif %}
+  {% endif %}
+
+{% endblock %}

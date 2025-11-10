@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block title %}{{ title }} - {{ site.title }}{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon.png">
+  <link rel="canonical" href="{{ site.baseUrl }}{{ page.url }}" />
+
+  <link rel="stylesheet" href="/scss/style.css">
+
+  {% block meta_tags %}
+    {% if description %}<meta name="description" content="{{ description }}"/>{% endif %}
+    <meta property="og:title" content="{{ title }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ site.baseUrl }}{{ page.url }}"/>
+    {% if image %}<meta property="og:image" content="{{ site.baseUrl }}{{ image }}"/>{% endif %}
+    {% if description %}<meta property="og:description" content="{{ description }}"/>{% endif %}
+    <meta name="twitter:card" content="summary"/>
+    {% if site.twitter_handle %}<meta name="twitter:site" content="{{ site.twitter_handle }}"/>{% endif %}
+    {% if site.twitter_handle %}<meta name="twitter:creator" content="{{ site.twitter_handle }}"/>{% endif %}
+  {% endblock %}
+
+  {% if site.enableGoogleFonts %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="{{ site.googleFontsUrl }}" rel="stylesheet">
+  {% endif %}
+</head>
+
+<body class='page{% if site.addFrame %} frame{% endif %} {% block body_classes %}{% endblock %}'>
+  {% include "mobile-menu.njk" %}
+  <div id="wrapper" class="wrapper">
+    {% include "header.njk" %}
+    {% block main %}
+    {% endblock %}
+    {% include "footer.njk" %}
+  </div>
+
+  <script type="text/javascript" src="/js/scripts.js"></script>
+
+  {% block footer_js %}
+  {% endblock %}
+</body>
+</html>
