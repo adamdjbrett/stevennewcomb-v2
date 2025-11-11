@@ -1,4 +1,5 @@
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import fontAwesomePlugin from "@11ty/font-awesome";
 import { DateTime } from "luxon";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
@@ -8,6 +9,7 @@ import path from "path";
 
 export default function(eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(fontAwesomePlugin);
 
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/favicon.png");
@@ -24,7 +26,37 @@ export default function(eleventyConfig) {
         return;
       }
 
-      let result = sass.compileString(inputContent, {
+      // Read site config to inject CSS variables
+      let siteData;
+      try {
+        const siteJson = readFileSync("src/_data/site.json", "utf8");
+        siteData = JSON.parse(siteJson);
+      } catch (e) {
+        siteData = {};
+      }
+
+      // Replace Hugo template syntax with actual values
+      let processedContent = inputContent
+        .replace(/\{\{ \.Site\.Params\.fontFamilyHeading \| default "'Poppins', sans-serif" \}\}/g, 
+          `'${siteData.fontFamilyHeading || 'Poppins'}', sans-serif`)
+        .replace(/\{\{ \.Site\.Params\.fontFamilyParagraph \| default "'Helvetica', sans-serif" \}\}/g, 
+          `'${siteData.fontFamilyParagraph || 'Helvetica'}', sans-serif`)
+        .replace(/\{\{ \.Site\.Params\.fontFamilyMonospace \| default "monospace" \}\}/g, 
+          `'${siteData.fontFamilyMonospace || 'monospace'}'`)
+        .replace(/\{\{ \.Site\.Params\.baseColor \| default "#ffffff" \}\}/g, 
+          siteData.baseColor || '#ffffff')
+        .replace(/\{\{ \.Site\.Params\.baseOffsetColor \| default "#eaeaea" \}\}/g, 
+          siteData.baseOffsetColor || '#eaeaea')
+        .replace(/\{\{ \.Site\.Params\.highlightColor \| default "#7b16ff" \}\}/g, 
+          siteData.highlightColor || '#7b16ff')
+        .replace(/\{\{ \.Site\.Params\.headingColor \| default "#1c1b1d" \}\}/g, 
+          siteData.headingColor || '#1c1b1d')
+        .replace(/\{\{ \.Site\.Params\.textColor \| default "#4e5157" \}\}/g, 
+          siteData.textColor || '#4e5157')
+        .replace(/\{\{ \.Site\.Params\.dotColor \| default "#7b16ff" \}\}/g, 
+          siteData.dotColor || '#7b16ff');
+
+      let result = sass.compileString(processedContent, {
         loadPaths: [parsed.dir || ".", "src/scss"]
       });
 

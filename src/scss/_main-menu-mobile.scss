@@ -1,4 +1,4 @@
-.main-menu-mobile {
+.menu-main-mobile {
   position: fixed;
   background: var(--highlight-color);
   top: 0;
@@ -38,6 +38,9 @@
       }
     }
   }
+  @include breakpoint('medium') {
+    display: none !important;
+  }
   ul {
     font-size: 2rem;
     font-family: var(--font-family-heading);
@@ -60,6 +63,11 @@
       }
       ul.sub-menu {
         font-size: 1.2rem;
+        li {
+          a {
+
+          }
+        }
       }
     }
   }

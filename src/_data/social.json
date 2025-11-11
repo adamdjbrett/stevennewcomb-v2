@@ -1,19 +1,24 @@
 {
   "links": [
     {
-      "name": "twitter",
-      "url": "https://twitter.com/zerostaticio",
-      "image": "/images/social/twitter.svg"
+      "name": "facebook",
+      "url": "https://www.facebook.com/steventnewcomb1/",
+      "icon": "fa-brands fa-facebook-f"
     },
     {
-      "name": "github",
-      "url": "https://github.com/zerostaticthemes/hugo-winston-theme",
-      "image": "/images/social/github.svg"
+    "name": "academia",
+    "url": "https://independent.academia.edu/StevenTNewcomb",
+    "icon": "fa-solid fa-graduation-cap"
     },
     {
-      "name": "linkedin",
-      "url": "https://www.linkedin.com",
-      "image": "/images/social/linkedin.svg"
+    "name": "researchgate",
+    "url": "https://www.researchgate.net/profile/Steven-Newcomb-2",
+    "icon": "fa-brands fa-researchgate"
+    },
+    {
+      "name": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/author/S.-Newcomb/107710266",
+      "icon": "fa-solid fa-book"
     }
   ]
 }

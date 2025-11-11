@@ -8,7 +8,11 @@
     "build": "eleventy",
     "clean": "rm -rf _site"
   },
-  "keywords": ["eleventy", "blog", "theme"],
+  "keywords": [
+    "eleventy",
+    "blog",
+    "theme"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
@@ -17,6 +21,7 @@
     "sass": "^1.83.0"
   },
   "dependencies": {
+    "@11ty/font-awesome": "^1.0.0",
     "luxon": "^3.5.0",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0"

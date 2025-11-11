@@ -9,7 +9,7 @@ Hugo Winston is a bold minimal blogging theme.
 [Live Demo](https://hugo-winston.netlify.app/) |
 [Zerostatic Themes](https://www.zerostatic.io/)
 
-![Hugo Winston Theme screenshot](https://www.zerostatic.io/theme/hugo-winston/hugo-winston-screenshot.png)
+![Hugo Winston Theme screenshot](https://www.zerostatic.io/theme/hugo-winston/hugo-winston-screenshot.webp)
 
 ## Theme features
 

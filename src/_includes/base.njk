@@ -5,11 +5,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>{% block title %}{{ title }} - {{ site.title }}{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="/favicon.png">
+  <link rel="icon" href="/favicon.png" />
   <link rel="canonical" href="{{ site.baseUrl }}{{ page.url }}" />
 
   <link rel="stylesheet" href="/scss/style.css">
-
+  {% include "schema.njk" %}
   {% block meta_tags %}
     {% if description %}<meta name="description" content="{{ description }}"/>{% endif %}
     <meta property="og:title" content="{{ title }}"/>

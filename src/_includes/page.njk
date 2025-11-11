@@ -12,5 +12,7 @@
 
 <div class="content">
   {{ content | safe }}
+  <!-- outputs all the icons used on the page -->
+  {% getBundle "fontawesome" %}
 </div>
 {% endblock %}
