@@ -1,6 +1,6 @@
 var body = document.querySelector('body');
 var menuTrigger = document.querySelector('#toggle-menu-main-mobile');
-var menuContainer = document.querySelector('#menu-main-mobile');
+var menuContainer = document.querySelector('#main-menu-mobile');
 var hamburgerIcon = document.querySelector('.hamburger');
 
 if (menuTrigger !== null) {

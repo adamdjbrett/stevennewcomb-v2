@@ -1,41 +1,41 @@
 ---
-layout: base.njk
-title: Original Free Nations Advocate.
+title: Original Free Nations Advocate
 description: |
   Steven T. Newcomb is dedicated to supporting Indigenous nations and peoples to protect their sacred ancestral homelands, to restore and revitalize their linguistic, cultural, and spiritual traditions, and to heal from the trauma of colonization and the patterns of domination.
 ---
+{% extends "base.njk" %}
 
 {% block body_classes %}page-home{% endblock %}
 
 {% block main %}
 
-  {% if site.showAuthorOnHomepage %}
-    {% include "author-large.njk" %}
+{% if site.showAuthorOnHomepage %}
+  {% include "author-large.njk" %}
+{% endif %}
+
+<div class="intro">
+  <h1>{{ title }}{% if site.addDot %}<span class="dot">.</span>{% endif %}</h1>
+  {% if site.showIntroContentOnHomepage %}
+    <div class="intro-content">
+      {{ description }}
+    </div>
   {% endif %}
+</div>
 
-  <div class="intro">
-    <h1>{{ title }}{% if site.addDot %}<span class="dot">.</span>{% endif %}</h1>
-    {% if site.showIntroContentOnHomepage %}
-      <div class="intro-content">
-        {{ content | safe }}
-      </div>
-    {% endif %}
-  </div>
+{% if site.showPostsOnHomepage %}
+  {% set postsList = collections.posts %}
 
-  {% if site.showPostsOnHomepage %}
-    {% set postsList = collections.posts %}
-
-    {% if site.usePaginationOnHomepage %}
-      {% for post in postsList %}
-        {% include "post-summary.njk" %}
-      {% endfor %}
-    {% else %}
-      {% set limitedPosts = postsList | limit(site.limitPostsOnHomepage) %}
-      {% for post in limitedPosts %}
-        {% include "post-summary.njk" %}
-      {% endfor %}
-      <a class="view-more" href="/posts">More Posts</a>
-    {% endif %}
+  {% if site.usePaginationOnHomepage %}
+    {% for post in postsList %}
+      {% include "post-summary.njk" %}
+    {% endfor %}
+  {% else %}
+    {% set limitedPosts = postsList | limit(site.limitPostsOnHomepage) %}
+    {% for post in limitedPosts %}
+      {% include "post-summary.njk" %}
+    {% endfor %}
+    <a class="view-more" href="/posts">More Posts</a>
   {% endif %}
+{% endif %}
 
 {% endblock %}

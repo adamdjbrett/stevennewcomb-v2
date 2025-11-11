@@ -1,4 +1,4 @@
-.menu-main-mobile {
+.main-menu-mobile {
   position: fixed;
   background: var(--highlight-color);
   top: 0;
@@ -60,11 +60,6 @@
       }
       ul.sub-menu {
         font-size: 1.2rem;
-        li {
-          a {
-
-          }
-        }
       }
     }
   }
