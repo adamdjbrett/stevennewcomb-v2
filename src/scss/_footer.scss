@@ -5,17 +5,10 @@
   }
 }
 
-.social-icon {
-  margin-right: 10px;
-  height: 12px;
-  width: 12px;
-  margin: auto;
-  color:black
-  opacity: 0.7;
-  a {
-    text-decoration: none;
-    &:hover {
-      text-decoration: none;
-    }
-  }
+.footer-social {
+  display: flex;
+  gap: 10px;
+  align-items: left;
+  justify-content: flex-start;
+  margin-top: 20px;
 }

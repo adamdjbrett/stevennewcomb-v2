@@ -2,9 +2,8 @@
   {% if social.links %}
   <div class="footer-social">
     {% for link in social.links %}
-      <span class="social-icon social-icon-{{ link.name }}">
+      <span class="social-icon social-icon-{{ link.name | lower }}">
         <a href="{{ link.url }}" title="{{ link.name }}" target="_blank" rel="noopener">
-           {% getBundle "fontawesome" %}
           <i class="{{ link.icon }}" aria-label="{{ link.name }}"></i>
         </a>
       </span>

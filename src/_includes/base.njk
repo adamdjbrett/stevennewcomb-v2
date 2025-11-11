@@ -34,9 +34,10 @@
     {% include "header.njk" %}
     {% block main %}
     {% endblock %}
+    <!-- outputs all the icons used on the page -->
+    {% getBundle "fontawesome" %}
     {% include "footer.njk" %}
   </div>
-
   <script type="text/javascript" src="/js/scripts.js"></script>
 
   {% block footer_js %}
