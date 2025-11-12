@@ -4,9 +4,13 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>{% block title %}{{ title }} - {{ site.title }}{% endblock %}</title>
+  <meta name="generator" content="{{ eleventy.generator }}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="/favicon.png" />
-  <link rel="canonical" href="{{ site.baseUrl }}{{ page.url }}" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  {% seo "" %}
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="{{ site.url }}/feed/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS Feed" href="{{ site.url }}/feed/rss.xml" />
 
   <link rel="stylesheet" href="/scss/style.css">
   {% include "schema.njk" %}
@@ -14,12 +18,12 @@
     {% if description %}<meta name="description" content="{{ description }}"/>{% endif %}
     <meta property="og:title" content="{{ title }}"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="{{ site.baseUrl }}{{ page.url }}"/>
-    {% if image %}<meta property="og:image" content="{{ site.baseUrl }}{{ image }}"/>{% endif %}
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
+    {% if image %}<meta property="og:image" content="{{ site.url }}{{ image }}"/>{% endif %}
     {% if description %}<meta property="og:description" content="{{ description }}"/>{% endif %}
     <meta name="twitter:card" content="summary"/>
-    {% if site.twitter_handle %}<meta name="twitter:site" content="{{ site.twitter_handle }}"/>{% endif %}
-    {% if site.twitter_handle %}<meta name="twitter:creator" content="{{ site.twitter_handle }}"/>{% endif %}
+    {% if site.twitter %}<meta name="twitter:site" content="{{ site.twitter }}"/>{% endif %}
+    {% if site.twitter %}<meta name="twitter:creator" content="{{ site.twitter }}"/>{% endif %}
   {% endblock %}
 
   {% if site.enableGoogleFonts %}

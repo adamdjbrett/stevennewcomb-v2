@@ -1,8 +1,17 @@
 {
   "title": "Steven T. Newcomb",
-  "baseUrl": "/",
+  "authorTitle": "Shawnee-Lenape scholar and author",
   "description": "A Shawnee-Lenape scholar and author exploring Indigenous histories and legacies of resistance.",
-  "twitter_handle": "@zerostaticio",
+  "url": "https://steven-newcomb-v2.netlify.app/",
+  "author": "Steven T. Newcomb",
+  "authorImage": "/images/author.jpg",
+  "image": "/images/site-social-share.png",
+  "options": {
+    "titleDivider": "-",
+    "canonical": true,
+    "imageWithBaseUrl": true
+  },
+  "twitter": "zerostaticio",
   "showAuthorOnHomepage": true,
   "showAuthorOnPosts": false,
   "showIntroContentOnHomepage": true,

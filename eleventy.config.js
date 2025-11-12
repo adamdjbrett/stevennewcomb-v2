@@ -1,5 +1,7 @@
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import fontAwesomePlugin from "@11ty/font-awesome";
+import pluginRss from "@11ty/eleventy-plugin-rss";
+import pluginSEO from "eleventy-plugin-seo";
 import { DateTime } from "luxon";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
@@ -14,6 +16,10 @@ export default function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/favicon.png");
   eleventyConfig.addPassthroughCopy("src/js");
+  // Feed XSL passthrough
+  eleventyConfig.addPassthroughCopy({
+    "src/feed/pretty-atom-feed.xsl": "feed/pretty-atom-feed.xsl"
+  });
 
   eleventyConfig.addWatchTarget("src/scss/");
 
@@ -65,13 +71,28 @@ export default function(eleventyConfig) {
       };
     }
   });
+  // RSS/Atom feed plugin (provides filters: rssLastUpdatedDate, rssDate, absoluteUrl)
+  eleventyConfig.addPlugin(pluginRss);
 
+  // SEO plugin configuration
+  let seoData = {};
+  try {
+    const siteJson = readFileSync("src/_data/site.json", "utf8");
+    seoData = JSON.parse(siteJson);
+  } catch (e) {
+    // ignore if seo.json missing; plugin can run with defaults
+  }
+  eleventyConfig.addPlugin(pluginSEO, seoData);
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLLL d, yyyy");
   });
 
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
+  });
+  // ISO 8601 date for Atom <updated> and <published>
+  eleventyConfig.addFilter("isoDate", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toISO();
   });
 
   eleventyConfig.addFilter("limit", (array, limit) => {
