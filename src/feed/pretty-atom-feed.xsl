@@ -11,7 +11,7 @@ to aboutfeeds.com for new user onboarding. See it in action:
 https://nicolas-hoizey.com/feeds/all.xml
 
 -->
-<xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
