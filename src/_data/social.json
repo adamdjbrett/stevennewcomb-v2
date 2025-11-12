@@ -1,24 +1,19 @@
 {
   "links": [
     {
+      "name": "podcast",
+      "url": "https://dominationchronicles.com",
+      "icon": "fa-brands fa-podcast fa-2xs"
+    },
+    {
+      "name": "substack",
+      "url": "https://stevennewcomb.substack.com/",
+      "icon": "fa-brands fa-solid fa-envelope fa-2xs"
+    },
+    {
       "name": "facebook",
       "url": "https://www.facebook.com/steventnewcomb1/",
-      "icon": "fa-brands fa-facebook-f  fa-2xs"
-    },
-    {
-    "name": "academia",
-    "url": "https://independent.academia.edu/StevenTNewcomb",
-    "icon": "fa-solid fa-graduation-cap fa-2xs"
-    },
-    {
-    "name": "researchgate",
-    "url": "https://www.researchgate.net/profile/Steven-Newcomb-2",
-    "icon": "fa-brands fa-researchgate fa-2xs"
-    },
-    {
-      "name": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/author/S.-Newcomb/107710266",
-      "icon": "fa-solid fa-book fa-2xs"
+      "icon": "fa-brands fa-square-facebook  fa-2xs"
     }
   ]
 }
