@@ -1,7 +1,7 @@
 .footer {
-  margin-top: 30px;
+  margin-top: 5px;
   @include breakpoint('small') {
-    padding-top: 40px;
+    padding-top: 30px;
   }
 }
 
